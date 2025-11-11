@@ -154,7 +154,7 @@ export const App = () => {
                     </button>
                 </nav>
             </div>
-            {/* Menú Móvil */}
+            {/* Menú Móvil - Clases 'block'/'hidden' funcionan bien cuando las tarjetas no tienen AOS */}
             <div id="mobile-menu" className={`${isMenuOpen ? 'block' : 'hidden'} md:hidden bg-[#0d1117]`}>
                 <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 flex flex-col items-center">
                     {navItems.map(item => (
@@ -176,8 +176,9 @@ export const App = () => {
     );
 
     // Componente de Tarjeta de Servicio
+    // *** CORRECCIÓN: Se ELIMINÓ 'animate-on-scroll animate-delay-${delay}' ***
     const ServiceCard = ({ iconPath, title, description, border, delay, listItems }) => (
-        <article className={`bg-gray-800 p-8 rounded-xl shadow-2xl border-t-4 ${border} transform hover:shadow-cyan-900 transition duration-300 ease-in-out animate-on-scroll animate-delay-${delay}`}>
+        <article className={`bg-gray-800 p-8 rounded-xl shadow-2xl border-t-4 ${border} transform hover:shadow-cyan-900 transition duration-300 ease-in-out`}>
             <div className={`text-${border.split('-')[2]}-400 mb-4`}>
                 <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d={iconPath}></path></svg>
             </div>
@@ -190,8 +191,9 @@ export const App = () => {
     );
     
     // Componente de Ventaja Competitiva
+    // *** CORRECCIÓN: Se ELIMINÓ 'animate-on-scroll animate-delay-${delay}' ***
     const AdvantageItem = ({ number, title, description, delay }) => (
-        <div className={`p-6 bg-gray-800 rounded-xl shadow-lg hover:bg-gray-700/50 transition duration-300 animate-on-scroll animate-delay-${delay}`}>
+        <div className={`p-6 bg-gray-800 rounded-xl shadow-lg hover:bg-gray-700/50 transition duration-300`}>
             <div className="text-3xl text-cyan-400 mb-3 font-semibold">{number}.</div>
             <h3 className="text-xl font-bold text-white mb-2">{title}</h3>
             <p className="text-gray-400 text-sm">{description}</p>
@@ -269,22 +271,25 @@ export const App = () => {
                         </div>
 
                         <div className="grid md:grid-cols-3 gap-10">
+                            {/* Tarjeta de Servicio AHORA SIN AOS */}
                             <ServiceCard
                                 iconPath="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
                                 title="Desarrollo de Software a Medida"
                                 description="Creamos sistemas robustos, escalables y optimizados que se adaptan con precisión a tus procesos de negocio, utilizando tecnologías modernas y de vanguardia."
                                 border="border-cyan-500"
-                                delay={2}
+                                delay={2} 
                                 listItems={["Modelos Ágiles (Scrum)", "Integración de Sistemas Existentes", "Arquitecturas Microservicios"]}
                             />
+                            {/* Tarjeta de Servicio AHORA SIN AOS */}
                             <ServiceCard
                                 iconPath="M12 4.354a4 4 0 010 5.292c.791.956 1.344 1.838 1.488 2.822C13.633 13.91 13 14.887 13 16h-2c0-1.113-.633-2.09-1.512-2.532-.144-.984-.697-1.866-1.488-2.822a4 4 0 010-5.292V4.354zM18 16c0 3.314-4 6-6 6s-6-2.686-6-6h12z"
                                 title="Diseño Centrado en el Usuario (UX/UI)"
                                 description="Diseñamos soluciones pensando primero en las personas. Garantizamos una experiencia intuitiva, amigable y eficiente para tus usuarios finales."
                                 border="border-blue-500"
-                                delay={3}
+                                delay={3} 
                                 listItems={["Análisis de Usabilidad y Flujos", "Prototipado de Alta Fidelidad", "Interfaces Modernas y Atractivas"]}
                             />
+                            {/* Tarjeta de Servicio AHORA SIN AOS */}
                             <ServiceCard
                                 iconPath="M15 7a2 2 0 012 2v4a2 2 0 01-2 2h-4a2 2 0 01-2-2v-4a2 2 0 012-2h4zM17 17v4m-2-4h4"
                                 title="Diagnóstico y Análisis de Sistemas"
@@ -309,9 +314,13 @@ export const App = () => {
                         </div>
 
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                            {/* Ventaja AHORA SIN AOS */}
                             <AdvantageItem number="01" title="Tecnología de Vanguardia" description="Nos mantenemos a la vanguardia, garantizando que tu solución se construya con las tecnologías más modernas y sólidas del mercado." delay={2} />
+                            {/* Ventaja AHORA SIN AOS */}
                             <AdvantageItem number="02" title="Resultados Tangibles" description="Nuestro enfoque es generar un impacto real en tu negocio: más eficiencia, mayor productividad y un claro retorno de inversión." delay={3} />
+                            {/* Ventaja AHORA SIN AOS */}
                             <AdvantageItem number="03" title="Estándares de Calidad" description="Seguimos modelos ágiles y rigurosos (como Scrum) para asegurar sistemas escalables, robustos y con bajos índices de error." delay={4} />
+                            {/* Ventaja AHORA SIN AOS */}
                             <AdvantageItem number="04" title="Soporte Continuo" description="No solo desarrollamos; te acompañamos con mantenimiento y soporte técnico experto para el crecimiento continuo de tu sistema." delay={2} />
                         </div>
                     </div>
