@@ -243,7 +243,7 @@ export const App = () => {
 
                     {/* LOGO DE DYNNAMO PARA TAPAR EL LOGO DE UNICORN STUDIO */}
                     {/* Ajusta 'bottom-5' y 'left-1/2 transform -translate-x-1/2' según necesites */}
-                    <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-30 flex items-center bg-gray-800 px-4 py-2 rounded-lg w-48">
+                    <div className="absolute bottom-7 left-1/2 transform -translate-x-1/2 z-30 flex items-center bg-gray-800 px-4 py-2 rounded-lg w-48">
                         <img 
                             src={DYNNAMO_LOGO_URL} 
                             alt="Dynnamo Logo" 
